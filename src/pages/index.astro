@@ -1,0 +1,86 @@
+---
+import { Image } from 'astro:assets'
+import { Container } from '../components/Container'
+import starrySky from '../starrySky.webp'
+import starrySky1 from '../starrySky1.jpg'
+import starrySky2 from '../starrySky2.jpg'
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>Astro & Qwik</title>
+  </head>
+  <body>
+    <Image class="starrySky" src={starrySky} alt="Starry sky" />
+    <div class="content">
+      <h1>Astro & Qwik</h1>
+      <Container />
+
+      <div class="gallery">
+        <Image src={starrySky1} alt="Forest with starry sky gallery image" />
+        <Image src={starrySky2} alt="Bluish starry sky gallery image" />
+      </div>
+    </div>
+  </body>
+</html>
+
+<style>
+  body {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background: linear-gradient(120deg, #2f55a8, #8379b5);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
+      Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  }
+  .starrySky {
+    position: fixed;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+  }
+
+  .content {
+    background-color: rgba(255, 255, 255, 0.8);
+    width: min(80%, 1000px);
+    padding: 40px 20px;
+    border-radius: 30px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .gallery {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+
+    img {
+      width: 300px;
+      height: 300px;
+      border-radius: 30px;
+
+      @media (max-width: 1000px) {
+        width: 180px;
+        height: 180px;
+      }
+
+      @media (max-width: 660px) {
+        width: 100px;
+        height: 100px;
+      }
+    }
+  }
+</style>
